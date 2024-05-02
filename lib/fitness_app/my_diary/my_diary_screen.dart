@@ -75,9 +75,11 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   void addAllListData() {
     const int count = 9;
 
+    var date = DateTime.now().toString().split(' ')[0];
+
     listViews.add(
       TitleView(
-        titleTxt: '29 April 2024',
+        titleTxt: date,
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
