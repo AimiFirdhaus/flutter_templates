@@ -75,11 +75,28 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   void addAllListData() {
     const int count = 9;
 
-    var date = DateTime.now().toString().split(' ')[0];
+    var fullDate = DateTime.now().toString().split(' ')[0].split('-');
+    var date = int.parse(fullDate[2]).toString();
+    var month = fullDate[1];
+    var monthNames = [
+      'Januari',
+      'Februari',
+      'Mac',
+      'April',
+      'Mei',
+      'Jun',
+      'Julai',
+      'Ogos',
+      'September',
+      'Oktober',
+      'November',
+      'Disember'
+    ];
+    var year = fullDate[0];
 
     listViews.add(
       TitleView(
-        titleTxt: date,
+        titleTxt: '$date ${monthNames[int.parse(month) - 1]} $year',
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
